@@ -1,4 +1,6 @@
-﻿namespace EmployeeManagement.Domain.Entities;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace EmployeeManagement.Domain.Entities;
 
 public class Employee
 {
