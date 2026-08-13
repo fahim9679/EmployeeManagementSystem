@@ -1,4 +1,5 @@
-﻿using EmployeeManagement.Application.Interfaces;
+﻿using EmployeeManagement.Application.DTOs;
+using EmployeeManagement.Application.Interfaces;
 using EmployeeManagement.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -25,9 +26,13 @@ namespace EmployeeManagement.Application.Services
             return await _repository.GetByIdAsync(id);
         }
         
-        public async Task<Department> AddAsync(Department department)
+        public async Task<Department> AddAsync(CreateDepartmentRequest createDepartmentRequest)
         {
-           return await _repository.AddAsync(department);
+            var department = new Department
+            {
+                Name = createDepartmentRequest.Name
+            };
+            return await _repository.AddAsync(department);
         }
 
         public Task UpdateAsync(Department department)

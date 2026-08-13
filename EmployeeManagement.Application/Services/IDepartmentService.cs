@@ -1,4 +1,5 @@
-﻿using EmployeeManagement.Domain.Entities;
+﻿using EmployeeManagement.Application.DTOs;
+using EmployeeManagement.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,7 +10,7 @@ namespace EmployeeManagement.Application.Services
     {
         Task<List<Department>> GetAllAsync();
         Task<Department?> GetByIdAsync(int id);
-        Task<Department> AddAsync(Department department);
+        Task<Department> AddAsync(CreateDepartmentRequest createDepartmentRequest);
         Task UpdateAsync(Department department);
         Task DeleteAsync(int id);
     }
