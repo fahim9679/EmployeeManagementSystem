@@ -1,4 +1,5 @@
-﻿using EmployeeManagement.Application.Interfaces;
+﻿using EmployeeManagement.Application.DTOs;
+using EmployeeManagement.Application.Interfaces;
 using EmployeeManagement.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -23,8 +24,21 @@ namespace EmployeeManagement.Application.Services
         {
             return await _employeeRepository.GetByIdAsync(id);
         }
-        public Task<Employee> CreateAsync(Employee employee)
+        public Task<Employee> CreateAsync(CreateEmployeeRequest request)
         {
+            var employee = new Employee
+            {
+                EmployeeCode = request.EmployeeCode,
+                FirstName = request.FirstName,
+                LastName = request.LastName,
+                Email = request.Email,
+                Phone = request.Phone,
+                DateOfBirth=request.DateOfBirth,
+                HireDate = request.HireDate,
+                Salary = request.Salary,
+                DepartmentId = request.DepartmentId,
+                DesignationId = request.DesignationId
+            };
             return _employeeRepository.AddAsync(employee);
         }
         public async Task UpdateAsync(Employee employee)

@@ -1,4 +1,5 @@
-﻿using EmployeeManagement.Domain.Entities;
+﻿using EmployeeManagement.Application.DTOs;
+using EmployeeManagement.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,7 +12,7 @@ public interface IEmployeeService
 
     Task<Employee?> GetByIdAsync(int id);
 
-    Task<Employee> CreateAsync(Employee employee);
+    Task<Employee> CreateAsync(CreateEmployeeRequest request);
 
     Task UpdateAsync(Employee employee);
 
